@@ -64,9 +64,9 @@ namespace Practica1
 
             GreetCountries(@"C:\Users\a875025\Downloads\countries.txt", OutputString);
 
-            // ClaseHija hija = ClaseHija(21, "Puebla");
-            // hija.DevolverEdad();
-            // hija.DecirQuienEs();
+            ClaseHija hija = new ClaseHija(21, "Puebla");
+            Console.WriteLine(hija.DevolverEdad());
+            hija.DecirQuienEs();
 
             ManejoDeExcepciones manejoDeExcepciones = new ManejoDeExcepciones();
             try
