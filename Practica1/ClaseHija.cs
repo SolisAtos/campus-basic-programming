@@ -8,13 +8,13 @@ namespace Practica1
 {
     sealed internal class ClaseHija : ClaseAbstracta
     {
-        private int Edad;
-        private string Ciudad;
+        private int _edad;
+        private string _ciudad;
 
         public ClaseHija(int edad, string ciudad)
         {
-            Edad = edad;
-            Ciudad = ciudad;
+            _edad = edad;
+            _ciudad = ciudad;
         }
 
         public void DecirQuienEs()
@@ -24,7 +24,7 @@ namespace Practica1
 
         public int DevolverEdad()
         {
-            return Edad;
+            return _edad;
         }
     }
 }
