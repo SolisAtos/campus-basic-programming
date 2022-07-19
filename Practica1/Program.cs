@@ -15,23 +15,45 @@ namespace Practica1
             // Almacena los paises para despues escribirlos
             List<string> countries = new List<string>();
 
-            // Lee el archivo
-            using (StreamReader sr = new StreamReader(InputFile))
+            try
             {
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                // Lee el archivo
+                using (StreamReader sr = new StreamReader(InputFile))
                 {
-                    countries.Add(line);
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        countries.Add(line);
+                    }
                 }
             }
-
-            // Escribe el archivo de salida
-            using (StreamWriter sw = new StreamWriter(OutputFile))
+            catch(FileNotFoundException e)
             {
-                foreach(string country in countries)
+                Console.WriteLine("File not found. Check that the path is correct and file exists.");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            try
+            {
+                // Escribe el archivo de salida
+                using (StreamWriter sw = new StreamWriter(OutputFile))
                 {
-                    sw.WriteLine($"Saludos hasta {country}!");
+                    foreach (string country in countries)
+                    {
+                        sw.WriteLine($"Saludos hasta {country}!");
+                    }
                 }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File not found. Check that the path is correct.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
             }
         }
         static void Main(string[] args)
@@ -40,11 +62,21 @@ namespace Practica1
             DateTime CurrentDate = DateTime.Now;
             OutputString += $"{CurrentDate.ToString("yyyy-MMMM-dd")}.txt";
 
-            // GreetCountries(@"C:\Users\a875025\Downloads\countries.txt", OutputString);
+            GreetCountries(@"C:\Users\a875025\Downloads\countries.txt", OutputString);
 
-            ClaseHija hija = ClaseHija(21, "Puebla");
-            hija.DevolverEdad();
-            hija.DecirQuienEs();
+            // ClaseHija hija = ClaseHija(21, "Puebla");
+            // hija.DevolverEdad();
+            // hija.DecirQuienEs();
+
+            ManejoDeExcepciones manejoDeExcepciones = new ManejoDeExcepciones();
+            try
+            {
+                manejoDeExcepciones.Fail();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 
