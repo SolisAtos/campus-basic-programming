@@ -40,7 +40,11 @@ namespace Practica1
             DateTime CurrentDate = DateTime.Now;
             OutputString += $"{CurrentDate.ToString("yyyy-MMMM-dd")}.txt";
 
-            GreetCountries(@"C:\Users\a875025\Downloads\countries.txt", OutputString);
+            // GreetCountries(@"C:\Users\a875025\Downloads\countries.txt", OutputString);
+
+            ClaseHija hija = ClaseHija(21, "Puebla");
+            hija.DevolverEdad();
+            hija.DecirQuienEs();
         }
     }
 
